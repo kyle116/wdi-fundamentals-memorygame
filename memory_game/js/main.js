@@ -30,28 +30,32 @@ var checkForMatch = function() {
 	}
 }
 
+var cardElement = document.createElement('img');
+
+var createBoard = function() {
+	for (var i = 0; i < cards.length; i++) {
+		
+		cardElement.setAttribute("src", "images/back.png");
+		cardElement.setAttribute('data-id', i); //does this overide the src attribute before it?
+		cardElement.addEventListener("click", flipCard());
+		document.appendChild(cardElement);
+  }
+}
+
 var flipCard = function() {
-	  var cardID = this.getAttribute("src"); //maybe src should be data-id, should not be this probably document.getElementsByTagName("img")
+	  var cardID = cardElement.getAttribute("src"); //maybe src should be data-id
 	  console.log("User flipped " + cards[cardId].rank);
       console.log(cards[cardId].cardImage)
       console.log(cards[cardId].suit)
       cardsInPlay.push(cards[cardId].rank)
-      document.setAttribute("src", cards[cardId].cardImage)
+      cardElement.setAttribute("src", cards[cardId].cardImage) //src should be data-id
 	    if (cardsInPlay.length === 2) {
 		checkForMatch();
   }
 
 }
 
-var createBoard = function() {
-	for (var i = 0; i < cards.length; i++) {
-		var cardElement = document.createElement('img');
-		cardElement.setAttribute("src", "images/back.png");
-		cardElement.setAttribute('data-id', i);
-		cardElement.addEventListener("click", flipCard());
-		document.appendChild(cardElement);
-  }
-}
+
 
 createBoard();
 
