@@ -31,7 +31,7 @@ var checkForMatch = function() {
 }
 
 var flipCard = function() {
-	  var cardID = this.getAttribute("src");
+	  var cardID = this.getAttribute("src"); //maybe src should be data-id
 	  console.log("User flipped " + cards[cardId].rank);
       console.log(cards[cardId].cardImage)
       console.log(cards[cardId].suit)
