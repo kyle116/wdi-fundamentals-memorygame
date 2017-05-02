@@ -38,7 +38,7 @@ var createBoard = function() {
 		cardElement.setAttribute("src", "images/back.png");
 		cardElement.setAttribute('data-id', i); //does this overide the src attribute before it?
 		cardElement.addEventListener("click", flipCard());
-		document.appendChild(cardElement);
+		document.getElementById("game-board").appendChild(cardElement);
   }
 }
 
